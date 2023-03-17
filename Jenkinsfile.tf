@@ -1,4 +1,4 @@
-pipeline {
+pipeline{
     agent any
     environment {
     PATH = "${PATH}:${getTerraformPath{}}"
@@ -10,8 +10,8 @@ pipeline {
         }
     }
 }
-}  
-  def getTerraformPath(){
+} 
+def getTerraformPath(){
    def tfHome = tool name: tool name: 'terraform', type: 'terraform'
    return tfHome
 }
