@@ -13,6 +13,6 @@ pipeline{
             steps{
                 sh label: '', script: 'terraform init'
             }
-        }  
+        }
     }
 }
