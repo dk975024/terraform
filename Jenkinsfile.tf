@@ -1,9 +1,18 @@
 pipeline{
-  agent any
-  environment {
-    PATH = "${PATH}:${getTerraformPath()}"
-  }
-def getTerraformPath(){
-  def tfhome = tool name: 'Terraform 0.11.13', type: 'org.jenkinsci.plugins.terraform.TerraformInstallation'
-  return tfHome
+    agent any
+    tools {
+        terraform 'terraform'
+    }
+    stages{
+        stage('git check out'){
+            steps{
+                git branch: 'main', url: 'https://github.com/dk975024/terraform.git'
+            }
+        }
+        stage('Terraform Init'){
+            steps{
+                sh label: '', script: 'terraform init'
+            }
+        }  
+    }
 }
