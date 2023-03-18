@@ -4,6 +4,6 @@ pipeline{
     PATH = "${PATH}:${getTerraformPath()}"
   }
 def getTerraformPath(){
-  def tfHome = tool name: tool name: 'terraform', type: 'terraform'
+  def tfhome = tool name: 'Terraform 0.11.13', type: 'org.jenkinsci.plugins.terraform.TerraformInstallation'
   return tfHome
 }
